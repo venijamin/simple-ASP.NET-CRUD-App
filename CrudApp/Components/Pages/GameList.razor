@@ -1,0 +1,53 @@
+﻿@page "/"
+@page "/games"
+@inject IGameService GameService
+@attribute [StreamRendering(true)]
+@rendermode InteractiveServer
+
+<h3>GameList</h3>
+<a href="/games/add" class="btn btn-primary">Add new game</a>
+
+@if (games == null)
+{
+    <span>Loading...</span>
+}
+else if (games.Count == 0)
+{
+    <span>No games found.</span>
+}
+else
+{
+    <ul>
+        @foreach (Game game in games)
+        {
+            <li>
+                <div>
+                    @game.Name
+                    <a href="/games/edit/@game.Id" class="btn btn-outline-primary">Edit</a>
+
+                  
+                    <button @onclick="()=>DeleteGame(game.Id)" class="btn btn-danger">Delete</button>
+                </div>
+            </li>
+        } 
+    </ul>
+}
+
+@code {
+    List<Game> games = new List<Game>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        games = await GameService.getAllGames();
+    }
+    async Task DeleteGame(int id)
+    {
+            await GameService.deleteGame(id);
+            await InvokeAsync(RefreshGames);
+    }
+    async Task RefreshGames()
+    {
+        games = await GameService.getAllGames();
+        StateHasChanged();
+    }
+}

@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Venijamin\\Desktop\\Projects\\simple-ASP.NET-CRUD-App\\CrudApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CrudApp.bundle.scp.css",
+      "PackagePath": "staticwebassets\\CrudApp.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\Venijamin\\Desktop\\Projects\\simple-ASP.NET-CRUD-App\\CrudApp\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\Venijamin\\Desktop\\Projects\\simple-ASP.NET-CRUD-App\\CrudApp\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Venijamin\\Desktop\\Projects\\simple-ASP.NET-CRUD-App\\CrudApp\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Venijamin\\Desktop\\Projects\\simple-ASP.NET-CRUD-App\\CrudApp\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CrudApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.CrudApp.props",
+      "PackagePath": "build\\CrudApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.CrudApp.props",
+      "PackagePath": "buildMultiTargeting\\CrudApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.CrudApp.props",
+      "PackagePath": "buildTransitive\\CrudApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
