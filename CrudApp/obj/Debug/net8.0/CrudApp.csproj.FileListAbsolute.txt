@@ -268,3 +268,4 @@ C:\Users\Venijamin\Desktop\Projects\simple-ASP.NET-CRUD-App\CrudApp\obj\Debug\ne
 C:\Users\Venijamin\Desktop\Projects\simple-ASP.NET-CRUD-App\CrudApp\obj\Debug\net8.0\CrudApp.pdb
 C:\Users\Venijamin\Desktop\Projects\simple-ASP.NET-CRUD-App\CrudApp\obj\Debug\net8.0\CrudApp.genruntimeconfig.cache
 C:\Users\Venijamin\Desktop\Projects\simple-ASP.NET-CRUD-App\CrudApp\obj\Debug\net8.0\ref\CrudApp.dll
+C:\Users\Venijamin\Desktop\Projects\simple-ASP.NET-CRUD-App\CrudApp\obj\Debug\net8.0\CrudApp.sourcelink.json

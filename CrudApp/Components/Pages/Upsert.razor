@@ -15,12 +15,17 @@
 
     async Task HandleSubmit()
     {
+        Console.WriteLine(game);
         if (id == null)
         { 
+            Console.WriteLine("Adding");
+
              await GameService.addGame(game);
         }
         else
         {
+            Console.WriteLine("Updating");
+
              await GameService.editGame(game, (int)id);
         }
         NavManager.NavigateTo("/games");

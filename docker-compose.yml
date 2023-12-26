@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+ crudapp:
+   image: venijamin/crudapp
+   container_name: app
+   ports:
+     - "8080:8080"
+   depends_on:
+     - db
+   networks:
+     - mynetwork
+
+ db:
+   image: venijamin/videogamedbserver
+   container_name: db
+   ports:
+     - "1433:1433"
+   networks:
+     - mynetwork
+
+networks:
+ mynetwork:
