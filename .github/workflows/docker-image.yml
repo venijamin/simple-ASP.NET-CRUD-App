@@ -19,8 +19,9 @@ jobs:
 
       - name: Build and push App Docker image
         run: |
-          docker build -t venijamin/crudapp:$(date +%s) ./CrudApp
-          docker push venijamin/crudapp:$(date +%s)
+          IMAGE_TAG=$(date +%s)
+          docker build -t venijamin/crudapp:$IMAGE_TAG ./CrudApp
+          docker push venijamin/crudapp:$IMAGE_TAG
 
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
