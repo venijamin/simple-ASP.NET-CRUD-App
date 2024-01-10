@@ -1,23 +1,26 @@
-version: '3'
+version: '3.8'
 
 services:
- crudapp:
-   image: venijamin/crudapp
-   container_name: app
-   ports:
-     - "8080:8080"
-   depends_on:
-     - db
-   networks:
-     - mynetwork
+    web:
+        build:
+            context: ./CrudApp
+            dockerfile: Dockerfile
+        container_name: web
+        ports:
+            - "8080:8080"
+        command: sh /migrations.sh
+        depends_on:
+            - db
+    db:
+        image: postgres
+        container_name: db
+        ports:
+            - "5432:5432"
+        volumes:
+            - postgres-data:/var/lib/postgresql/data
+        env_file: .env
+        environment:
+            POSTGRES_PASSWORD: ${DB_PASSWORD}
 
- db:
-   image: venijamin/videogamedbserver
-   container_name: db
-   ports:
-     - "1433:1433"
-   networks:
-     - mynetwork
-
-networks:
- mynetwork:
+volumes:
+  postgres-data:

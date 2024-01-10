@@ -9,9 +9,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+/*builder.Services.AddDbContext<DataContext>(options =>
+{
+    // var connectionString = Environment.GetEnvironmentVariable("DefaultConnection");
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    options.UseNpgsql(connectionString);
+
+
+});*/
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<DataContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-);
+    options.UseNpgsql(connectionString));
+
 builder.Services.AddScoped<IGameService, GameService>();
 
 var app = builder.Build();
