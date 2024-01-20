@@ -1,0 +1,19 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS dotnet
+
+# Update image
+RUN apt-get update && apt-get install -y git
+
+# Download the script that waits for the database to be active
+RUN git clone https://github.com/vishnubob/wait-for-it.git
+
+# Install EF Core to apply database migrations
+RUN dotnet tool install --global dotnet-ef
+ENV PATH="$PATH:/root/.dotnet/tools"
+
+WORKDIR /app
+COPY . .
+
+
+COPY migrations.sh ./migrations.sh
+
+ENTRYPOINT [ "sh", "migrations.sh"]

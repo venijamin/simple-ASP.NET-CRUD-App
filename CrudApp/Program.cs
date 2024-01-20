@@ -18,9 +18,13 @@ builder.Services.AddRazorComponents()
 
 });*/
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var connectionString = Environment.GetEnvironmentVariable("DefaultConnection");
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseNpgsql(connectionString));
+
+// var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+// builder.Services.AddDbContext<DataContext>(options =>
+//     options.UseNpgsql(connectionString));
 
 builder.Services.AddScoped<IGameService, GameService>();
 

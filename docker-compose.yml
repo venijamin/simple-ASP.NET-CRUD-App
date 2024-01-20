@@ -4,13 +4,16 @@ services:
     web:
         build:
             context: ./CrudApp
-            dockerfile: Dockerfile
+            dockerfile: Dockerfile.run
+        image: venijamin/web
         container_name: web
         ports:
             - "8080:8080"
-        command: sh /migrations.sh
         depends_on:
             - db
+            - migration
+        environment:
+            - DefaultConnection=${CONNECTION_STRING}
     db:
         image: postgres
         container_name: db
@@ -21,6 +24,17 @@ services:
         env_file: .env
         environment:
             POSTGRES_PASSWORD: ${DB_PASSWORD}
+    
+    migration:
+        build:
+            context: ./CrudApp
+            dockerfile: Dockerfile.migrations
+        image: venijamin/db-migrations
+        container_name: migration
+        depends_on:
+            - db
+        environment:
+            - DefaultConnection=${CONNECTION_STRING}
 
 volumes:
-  postgres-data:
+    postgres-data:

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: web
+  name: web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      io.kompose.service: web
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        io.kompose.network/simple-aspnet-crud-app-default: "true"
+        io.kompose.service: web
+    spec:
+      containers:
+        - args:
+            - sh
+            - /migrations.sh
+          image: web
+          name: web
+          ports:
+            - containerPort: 8080
+              hostPort: 8080
+              protocol: TCP
+          resources: {}
+      restartPolicy: Always
+status: {}
