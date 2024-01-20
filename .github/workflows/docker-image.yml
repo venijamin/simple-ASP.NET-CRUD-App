@@ -20,8 +20,8 @@ jobs:
       - name: Build and push App Docker image
         run: |
           IMAGE_TAG=$(date +%s)
-          docker build -t venijamin/web:$IMAGE_TAG -f Dockerfile.run ./CrudApp
-          docker build -t venijamin/db-migrations:$IMAGE_TAG -f Dockerfile.migrations ./CrudApp
+          docker build -t venijamin/web:$IMAGE_TAG -f ./CrudApp/Dockerfile.run ./CrudApp
+          docker build -t venijamin/db-migrations:$IMAGE_TAG -f ./CrudApp/Dockerfile.migrations ./CrudApp
           docker push venijamin/web:$IMAGE_TAG
           docker push venijamin/db-migrations:$IMAGE_TAG
 
