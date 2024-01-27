@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-migrations
+  namespace: crud-app
+spec:
+  template:
+    metadata:
+      name: db-migrations
+    spec:
+      containers:
+      - name: db-migrations
+        image: venijamin/db-migrations
+        env:
+        - name: DefaultConnection
+          valueFrom:
+            secretKeyRef:
+              name: db-secrets
+              key: CONNECTION_STRING
+      restartPolicy: Never

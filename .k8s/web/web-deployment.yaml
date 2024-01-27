@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: web
+  name: web
+  namespace: crud-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - image: venijamin/web
+        env:
+        - name: DefaultConnection
+          valueFrom:
+            secretKeyRef:
+              name: db-secrets
+              key: CONNECTION_STRING
+        name: web
+        ports:
+        - containerPort: 8080
+      restartPolicy: Always
